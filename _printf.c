@@ -78,4 +78,5 @@ int _funcion(const char *format, pr_f ops[], va_list ap)
 		}
 	}
 	return (count);
-}	
+}
+
