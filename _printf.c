@@ -44,7 +44,7 @@ int _funcion(const char *format, pr_f ops[], va_list ap)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '\0')
+		if (format[i] == '%')
 		{
 			if (format[i + 1] == '\0')
 			{
@@ -58,25 +58,24 @@ int _funcion(const char *format, pr_f ops[], va_list ap)
 					break;
 				}
 			}
-		}
-		if (ops[j].op == NULL && format[i + 1] != ' ')
-		{
-			if (format[i + 1] != '\0')
+			if (ops[j].op == NULL && format[i + 1] != ' ')
 			{
-				_putchar(format[i]);
-				_putchar(format[i + 1]);
-				count = count + 2;
+				if (format[i + 1] != '\0')
+				{
+					_putchar(format[i]);
+					_putchar(format[i + 1]);
+					count = count + 2;
+				}
+				else
+					return (-1);
 			}
-			else
-				return (-1);
+			i = i + 1;
 		}
-		i = i + 1;
-	}
-	else
-	{
-		_putchar(format[i]);
-		count = count + 1;
+		else
+		{
+			_putchar(format[i]);
+			count = count + 1;
+		}
 	}
 	return (count);
-}
-
+}	
