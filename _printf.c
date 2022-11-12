@@ -24,21 +24,21 @@ int _printf(const char *format, ...)
 	if (format != NULL)
 	{
 		va_start(ap, format);
-		count = _function(format, ops, ap)
+		count = _funcion(format, ops, ap);
 		va_end(ap);
 	}
 	return (count);
 }
 
 /**
- * _function - Helper function to print & call functions
+ * _funcion - Helper function to print & call functions
  * @format: Str recieved
  * @ops: special opt
  * @ap: args
  * Return: num of chars printed
  */
 
-int _function(const char *format, pr_f ops[], va_list ap)
+int _funcion(const char *format, pr_f ops[], va_list ap)
 {
 	int count = 0, i, j;
 
